@@ -10,12 +10,12 @@ export const DropdownMenu: React.FC<Props> = ({ people, onClick }) => {
   return (
     <div className="dropdown-menu" role="menu" data-cy="suggestions-list">
       <div className="dropdown-content">
-        {people.map((person, i) => (
+        {people.map(person => (
           <div
             className="dropdown-item"
             onMouseDown={() => onClick(person)}
             data-cy="suggestion-item"
-            key={i + 1}
+            key={person.name}
           >
             <p className="has-text-link" style={{ cursor: 'pointer' }}>
               {person.name}

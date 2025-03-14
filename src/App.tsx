@@ -68,7 +68,11 @@ export const App: React.FC<Props> = ({ delay = 300 }) => {
             : `${selectedPerson.name} (${selectedPerson.born} - ${selectedPerson.died})`}
         </h1>
 
-        <div className={'dropdown is-active'} tabIndex={0} ref={dropDown}>
+        <div
+          className={`dropdown ${focus && filteredPeople.length !== 0 ? 'is-active' : ''}`}
+          tabIndex={0}
+          ref={dropDown}
+        >
           <div className="dropdown-trigger">
             <input
               type="text"
@@ -86,7 +90,7 @@ export const App: React.FC<Props> = ({ delay = 300 }) => {
           )}
         </div>
 
-        {filteredPeople.length === 0 && (
+        {appliedQuery.trim() !== '' && filteredPeople.length === 0 && (
           <div
             className="
             notification
